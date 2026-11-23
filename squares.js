@@ -1,4 +1,5 @@
 let squareArea;
+let maxZ = 1000;
 
 window.onload = function() {
     squareArea = document.querySelector("#squarearea");
@@ -17,6 +18,7 @@ function addSquare() {
     square.style.backgroundColor = getRandomColor();
     square.style.top = parseInt(Math.random() * (300 - 50)) + "px";
     square.style.left = parseInt(Math.random() * (700 - 50)) + "px";
+    square.onclick = clickSquare;
     squareArea.append(square);
 }
 
@@ -35,4 +37,14 @@ function getRandomColor() {
         color += possibleLetters.charAt(position);
     }
     return color;
+}
+
+function clickSquare() {
+    let oldZ = parseInt(this.style.zIndex);
+    if (oldZ === maxZ) {
+        this.remove();
+    } else {
+        maxZ++;
+        this.style.zIndex = maxZ;
+    }
 }
