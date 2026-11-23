@@ -15,6 +15,9 @@ window.onload = function() {
 function addSquare() {
     let square = document.createElement("div");
     square.className = "square";
+    let size = parseInt(Math.random() * 11) + 45; // randomize between 45-55 pixels
+    square.style.width = size + "px";
+    square.style.height = size + "px";
     square.style.backgroundColor = getRandomColor();
     square.style.top = parseInt(Math.random() * (300 - 50)) + "px";
     square.style.left = parseInt(Math.random() * (700 - 50)) + "px";
